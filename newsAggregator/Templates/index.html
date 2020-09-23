@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container">
+	<h1 class ="display-1 jumbotron bg-warning" style="text-align:center;font-family:monospace">LATEST NEWS</h1>
+	<div class="row">
+	{% for article in all_news %}
+		<div class="col-lg">
+			<div class="card text-white bg-dark mb-3" style="width:18rem;">
+				<a href="{{article.article_url}}" target="_blank">
+					<img class="card-img-top" src="{{article.image}}" alt="Article Image">
+				</a>
+				<div class='card-body'>
+					<h5 class="card-title">{{article.title}}</h5>
+					<p class="card-text">{{article.body}}</p>
+					<p><strong>{{article.date}}</strong></p>
+					<a class="btn btn-primary btn-sm" target='_blank' href="{{article.article_url}}">Read More...</a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+{% endblock%}
